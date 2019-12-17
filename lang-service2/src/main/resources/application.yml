@@ -1,0 +1,22 @@
+server:
+  port: 8084
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
+    context-path: /
+spring:
+  application:
+    name: langService2
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8082/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    lease-renewal-interval-in-seconds: 122
+    lease-expiration-duration-in-seconds: 2
+    hostname: eurekaService2
+    prefer-ip-address: true

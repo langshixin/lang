@@ -1,0 +1,27 @@
+server:
+  port: 8081
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
+    context-path: /
+    max-http-header-size: 10240000
+spring:
+  application:
+    name: langZuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8082/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    lease-renewal-interval-in-seconds: 122
+    lease-expiration-duration-in-seconds: 2
+    hostname: langZuul
+    prefer-ip-address: true
+
+zuul:
+  routes:
+    langservice1: /apiGetway/service1/**
+    langservice2: /apiGetway/service2/**
